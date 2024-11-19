@@ -1,0 +1,114 @@
+/*При уменьшении страницы сам интерфейс режится*/
+/*Как убрать сдвиг картинки в конце скролла?*/
+
+html {
+  background-image: url("../libra.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: auto;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  position: fixed;
+  top: 10px;
+  left: 25px;
+  z-index: 1000;
+  width: 330px;
+  height: 165px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inria Serif", serif;
+  font-size: 120px;
+  color: #c02828;
+}
+
+@media screen and (max-width: 1200px) {
+  .title {
+    display: none;
+  }
+}
+.main {
+  background: rgba(247, 244, 244, 0.8);
+  border-radius: 20px;
+  padding: 10px;
+  padding-top: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+  height: 280px;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign_in_title {
+  font-family: "Inria Serif", serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #645555;
+}
+
+.username__form {
+  border-radius: 8px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user {
+  border: 1px solid;
+  outline: none; /*ВОПРОС*/
+  box-shadow: none;
+  height: 40px;
+  width: 100%;
+  background-color: white;
+  font-size: 1.1rem;
+  padding-left: 10px;
+  border-radius: 8px;
+}
+
+.user::placeholder {
+  color: #645555;
+  opacity: 0.7;
+}
+
+.user:focus {
+  outline: 2px solid #c02828;
+  border-radius: 8px;
+}
+
+.sign_in {
+  background-color: #c02828;
+  color: #fffff0;
+  height: 40px;
+  width: 80%;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-family: "Inria Serif", serif;
+  box-shadow: none; /*ВОПРОС*/
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sign_in:hover {
+  background-color: #e92e2e;
+}
+
+.sign_in:active {
+  background-color: #c02828;
+}

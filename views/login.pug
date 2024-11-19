@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        title Login
+        link(rel='stylesheet' href="/css/style.css")
+    body
+        h.title LIBRA
+        main.main
+            h1.sign_in_title Sign in to Libra
+            form.username__form(action='/home' method='POST')
+                input.user(type='text' placeholder='Login' name="username" maxlength='30' required) 
+                input.user(type='password' placeholder='Password' name="password" maxlength='100' required)
+            button.sign_in(type="submit") Sign in

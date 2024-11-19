@@ -1,0 +1,57 @@
+html {
+  background-image: url("../libra.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /*Как убрать сдвиг картинки в конце скролла?*/
+  overflow: auto;
+  height: 100vh;
+  margin: 0;
+}
+
+.interface {
+  margin: auto;
+  background: rgba(247, 244, 244, 0.8);
+  border-radius: 20px;
+  padding: 15px, 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 720px;
+  width: 1200px;
+  max-width: 100%;
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center; /* Центрирование по вертикали */
+}
+
+.search__block {
+  background: #e2dcdc;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.table__block {
+  background: rgba(226, 220, 220, 1);
+  display: grid;
+  grid-template-columns: repeat(3, 20%) 1fr;
+  gap: 3px;
+  color: rgba(100, 85, 85, 1);
+  width: 1160px;
+}
+
+.Cell {
+  outline: 3px solid white;
+}
+
+.table__heading {
+  background: rgba(207, 205, 205, 1);
+  padding-left: 30px;
+}
+
+@media screen and (max-width: 500px) {
+  .table__block {
+    font-size: 12px;
+  }
+}

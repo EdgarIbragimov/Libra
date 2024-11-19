@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "title": "Call of Cthulhu",
+    "author": "H.P.Lovecraft",
+    "date_publication": "2021-08-03",
+    "in-stock": "Yes",
+    "reader": "None",
+    "date_return": "None"
+  },
+  {
+    "id": 1,
+    "title": "Red Dragon",
+    "author": "Thomas Harris",
+    "date_publication": "1981-02-14",
+    "in-stock": "No",
+    "reader": "hidoku",
+    "date_return": "2024-12-12"
+  }
+]
