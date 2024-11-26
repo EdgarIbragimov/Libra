@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "username": "hidoku",
+    "displayName": "Hidoku",
+    "password": "12345",
+    "passwordHash": "$2a$10$BGKKDSyA5N5fnPCm3QiKqeyKZKEXN2GO4o7PKIfXwaHs4d7ALxckm"
+  },
+  {
+    "id": 2,
+    "username": "user",
+    "displayName": "User",
+    "password": "password",
+    "passwordHash": "$2b$10$6VY66NsZZVIxVaNC1zUhku.taLJMmFxCQflRsuonKa6KpzgrF008C"
+  },
+  {
+    "id": 3,
+    "username": "edgar",
+    "displayName": "Edgar",
+    "password": "pwd",
+    "passwordHash": "$2a$10$kLYdhBITAtexDdHFCn8McukE/7RkJvmp8jNBsHU7L/6XO.v3EbuH2"
+  },
+  {
+    "id": 4,
+    "username": "serg",
+    "displayName": "Serg",
+    "password": "qwert",
+    "passwordHash": "$2a$10$IJbyArUZIotFvIe/I7lQNOULEPWWzScfrjy/SzWX.ARlpPdwpdAAe"
+  },
+  {
+    "id": 5,
+    "username": "admin",
+    "displayName": "Admin",
+    "password": "admin",
+    "passwordHash": "$2a$10$D8EPSPLeDeThQVSXOa80FextKTazNNpPyS5Tc3YymIsb0Y5zU1glS"
+  }
+]

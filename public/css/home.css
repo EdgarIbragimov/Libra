@@ -1,0 +1,60 @@
+html {
+  background-image: url("../images/libra.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: auto;
+  margin: 0;
+  height: 100%;
+  background-color: black;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.grt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inria Serif", serif;
+  font-size: 80px;
+  color: #fffff0;
+  margin-bottom: 2px;
+  margin-top: -300px;
+}
+
+.title {
+  width: 330px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inria Serif", serif;
+  font-size: 160px;
+  color: #c02828;
+}
+
+.msg {
+  font-family: "Inria Serif", serif;
+  font-size: 40px;
+  color: #fffff0;
+}
+
+.sign_in {
+  background-color: #c02828;
+  color: #fffff0;
+  height: 60px;
+  width: 120px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-family: "Inria Serif", serif;
+  box-shadow: none; /*ВОПРОС*/
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
