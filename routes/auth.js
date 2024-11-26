@@ -20,9 +20,8 @@ authRouter.post(
 );
 
 authRouter.get("/logout", (req, res) => {
-  res.clearCookie("token"); // Clear the token cookie
-  // req.logout(); // Log out the user
-  res.redirect("/login"); // Redirect to the login page
+  res.clearCookie("token");
+  res.redirect("/login");
 });
 
 export default authRouter;
