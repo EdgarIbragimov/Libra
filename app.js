@@ -1,14 +1,32 @@
 import express from "express";
-import { router } from "./routes.js";
+import booksRouter from "./routes/book.js";
+import bodyParser from "body-parser";
+// import flash from "connect-flash";
+// import session from "express-session";
+import authRouter from "./routes/auth.js";
+import methodOverride from "method-override";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
-app.set("views", "./views");
-app.set("view engine", "pug");
-app.use(express.static("public"));
+// app.use(session({
+//   secret: 'zxc',
+//   resave: false,
+//   saveUninitialized: true,
+// }));
 
-app.use("/", router);
-app.set("port", "3000");
+// app.use(flash());
+
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(methodOverride('_method'));
+app.use(express.static("public"));
+app.set("view engine", "pug");
+
+app.use("/", booksRouter);
+app.use("/auth", authRouter);
+
 app.listen("3000", () => {
   console.log("Server is running on http://localhost:3000");
 });

@@ -1,0 +1,366 @@
+html {
+  background-image: url("../images/libra.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: auto;
+  margin: 0;
+  height: 100%;
+  background-color: black;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Начало блока стилей для layout.pug */
+.page__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  position: fixed;
+  top: -70px;
+  left: 40px;
+  z-index: 1000;
+  width: 330px;
+  height: 165px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inria Serif", serif;
+  font-weight: normal;
+  font-size: 120px;
+  color: #c02828;
+}
+
+@media screen and (max-width: 1200px) {
+  .title {
+    display: none;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .title {
+    display: none;
+  }
+}
+
+.button__logout {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+  z-index: 1000;
+  background: rgba(247, 244, 244, 0.8);
+  border-radius: 15px;
+  font-family: "Inria Serif", serif;
+  font-size: 1.6rem;
+  color: #645555;
+  height: 50px;
+  width: 120px;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button__logout:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.button__logout:active {
+  background-color: rgba(223, 223, 223, 0.8);
+}
+/* Конец блока стилей для layout.pug */
+
+/* Начало блока стилей для index.pug */
+.container {
+  background: rgba(247, 244, 244, 0.8);
+  border-radius: 20px;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 80vw;
+  height: 60vh;
+}
+
+.search__block {
+  background: white;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: space-between;
+}
+
+.search {
+  flex-grow: 1;
+  margin-right: 10px;
+  border: none;
+  font-family: "Inria Serif", serif;
+  font-size: 1.6rem;
+  color: #645555;
+}
+
+.dialog {
+  display: none;
+  border: none;
+  height: auto;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  flex-direction: column;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button__group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text__info {
+  display: inline-block;
+  font-family: "Inria Serif", serif;
+  color: #645555;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: calc(30vw - 200px);
+}
+
+.table-container {
+  max-height: 500px;
+  overflow-y: auto;
+  border-radius: 15px;
+  background-color: rgba(247, 244, 244, 0.8);
+}
+
+.books__list {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Inria Serif", serif;
+  color: #645555;
+}
+
+thead {
+  background-color: #cfcdcd;
+}
+
+th,
+td {
+  border: 1px solid white;
+  padding: 10px;
+  text-align: left;
+}
+
+tbody {
+  background-color: #e2dcdc;
+}
+
+.button__indesc {
+  display: flex;
+  gap: 10px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.button_info, .button_delete, .add, .filter {
+  background-color: transparent; /* No background */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1em; /* Increase icon size */
+  padding: 3px; /* Add some padding */
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.button_info:hover, .button_delete:hover, .add:hover, .filter:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.button_info i, .button_delete i, .add i, .filter i {
+  color: #645555; /* Change icon color */
+}
+
+.button_delete i {
+  color: #c02828; /* Change delete icon color */
+}
+
+/* Конец блока стилей для index.pug */
+
+/* Начало блока стилей для book.pug */
+
+.container__book {
+  background: rgba(247, 244, 244, 0.8);
+  border-radius: 20px;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 75px;
+  width: 80vw;
+  height: 60vh;
+}
+
+.information {
+  max-width: 400px;
+}
+
+.information p {
+  font-weight: bold; /* Жирный шрифт для всех параграфов */
+  margin: 10px 0; /* Вертикальные отступы между параграфами */
+}
+
+/* Специальные стили для заголовка */
+.information p:first-child {
+  font-size: 26px; /* Увеличенный размер шрифта для заголовка */
+  margin-bottom: 15px; /* Дополнительный отступ снизу заголовка */
+}
+
+/* Иконка перед каждым параграфом */
+.information p::before {
+  margin-right: 8px; /* Отступ между эмоджи и текстом */
+}
+
+/* Эмоджи для каждого конкретного параграфа */
+.information p:nth-child(2)::before {
+  content: "📚"; /* Эмоджи для заголовка */
+}
+
+.information p:nth-child(3)::before {
+  content: "✍️"; /* Эмоджи для автора */
+}
+
+.information p:nth-child(4)::before {
+  content: "🗓️"; /* Эмоджи для даты публикации */
+}
+
+.information p:nth-child(5)::before {
+  content: "📦"; /* Эмоджи для наличия книги */
+}
+
+.information p:nth-child(6)::before {
+  content: "👤"; /* Эмоджи для имени читателя */
+}
+
+.information p:nth-child(7)::before {
+  content: "🔙"; /* Эмоджи для даты возврата */
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.information {
+  font-family: "Inria Serif", serif;
+  color: #645555;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: calc(100% - 275px);
+  height: 400px;
+  border-radius: 15px;
+  overflow-y: auto;
+  margin: auto;
+  transition: transform 0.3s;
+}
+
+.information:hover {
+  transform: scale(1.02);
+}
+
+.description {
+  background-color: #fdfdfd;
+  width: calc(250px + 50px + (100% - 250px - 50px));
+  height: 400px;
+  border-radius: 15px;
+  overflow-y: auto;
+  font-family: "Inria Serif", serif;
+  color: #4a4a4a;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ddd;
+  transition: transform 0.3s;
+  margin: auto;
+}
+
+.description:hover {
+  transform: scale(1.02); /* Увеличение элемента при наведении */
+}
+
+.book__button {
+  background-color: #c02828;
+  color: #fffff0;
+  height: 40px;
+  width: 200px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-family: "Inria Serif", serif;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.book__button:hover {
+  background-color: #e92e2e;
+}
+
+.book__button:active {
+  background-color: #c02828;
+}
+
+.modal {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 24px;
+  float: right;
+  color: #c02828;
+}
+
+.close:hover {
+  color: #e92e2e;
+}
+
+/* Конец блока стилей для book.pug */

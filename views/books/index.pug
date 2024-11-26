@@ -1,0 +1,50 @@
+extends ../layout
+
+block content
+    div.container
+        .search__block
+            input.search(type='text' placeholder='Search...' name='title' maxlength='100')
+            button.add(type="submit")
+                i.fas.fa-plus-circle 
+            button.filter(type="button")
+                i.fas.fa-filter
+            dialog.dialog
+                div.modal__content 
+                    label   
+                        input(type="checkbox" name="available" id="available")
+                        span Есть в наличии
+                    label
+                        input(type="checkbox" name="returned" id="returned")
+                        span Дата возврата
+                    div.button__group
+                        button.cancel-button(type="button") Cancel
+                        button.confirm-button(type="button") Confirm
+        div.table__block
+            div.table-container
+                table.books__list
+                    thead.column__name
+                        tr
+                            th Title
+                            th Author
+                            th Date
+                            th Info
+                    tbody.books_data
+                        each book in booksData
+                            tr
+                                td
+                                    div.text__info 
+                                        | #{book.title}
+                                td
+                                    div.text__info 
+                                        | #{book.author}
+                                td
+                                    div.text__info 
+                                        | #{book.datePublication}
+                                td
+                                    div.text__info 
+                                        | #{book.description}
+                                        div.button__indesc
+                                            a.button_info(href=`/books/${book.id}`)
+                                                i.fas.fa-info-circle
+                                            button.button_delete(type="button")
+                                                i.fas.fa-trash
