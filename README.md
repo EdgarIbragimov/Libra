@@ -19,9 +19,7 @@ LIBRA is built using a variety of modern technologies:
 
 - Node.js: Backend framework for building scalable applications.
 - Express: Web framework for Node.js, facilitating easy routing and middleware integration.
-- MongoDB: NoSQL database for storing book and user information.
 - Passport.js: Authentication middleware for Node.js, providing a variety of strategies for user authentication.
-- React.js (optional): Frontend framework to create an interactive user interface.
 - CSS: For styling and enhancing the user experience.
 
 ## Getting Started
