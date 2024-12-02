@@ -1,21 +1,11 @@
 import express from "express";
 import booksRouter from "./routes/book.js";
 import bodyParser from "body-parser";
-// import flash from "connect-flash";
-// import session from "express-session";
 import authRouter from "./routes/auth.js";
 import methodOverride from "method-override";
 import cookieParser from "cookie-parser";
 
 const app = express();
-
-// app.use(session({
-//   secret: 'zxc',
-//   resave: false,
-//   saveUninitialized: true,
-// }));
-
-// app.use(flash());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());

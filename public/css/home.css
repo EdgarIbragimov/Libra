@@ -53,7 +53,7 @@ body {
   border-radius: 5px;
   font-size: 1.5rem;
   font-family: "Inria Serif", serif;
-  box-shadow: none; /*ВОПРОС*/
+  box-shadow: none;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;

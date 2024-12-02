@@ -10,11 +10,7 @@ passport.use(
     if (!user) {
       return done(null, false, { message: "Wrong Username" });
     }
-
     if (!bcrypt.compareSync(password, user.passwordHash)) {
-      console.log("hash: ",password);
-      console.log("hash: ",user.passwordHash);
-
       return done(null, false, { message: "Wrong password" });
     }
 

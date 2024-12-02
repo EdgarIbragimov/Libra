@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "title": "Call of C'Thulhu",
-    "author": "H.P. Lovecraft",
-    "datePublication": "1912-12-12",
-    "description": "Dagon, Cthulhu, Yog-Sothoth, and many other dark deities invented by Howard Lovecraft in the 1920s have since become so popular that hundreds of science fiction writers, including Neil Gaiman and Stephen King, have continued to expand on his mythology. Every monstrous deity in the Lovecraftian pantheon represents one of the innumerable facets of chaos. Lurking in the depths of the ocean or dwelling in the depths of impenetrable forests, sleeping in the Egyptian pyramids or immured in mountain caves, appearing on our planet from the stars or from the abyss of innumerable centuries, they are invariably hostile to humanity and beyond the control of reason. And the only thing that remains for a person is to avoid collision with these mysterious creatures in every possible way and stay on guard...",
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "datePublication": "1988-05-01",
+    "description": "A philosophical book that tells the story of Santiago, a shepherd boy who dreams of finding a treasure located near the Egyptian pyramids.",
     "inStock": false,
-    "readerId": 5,
-    "dateReturn": "2024-12-26"
+    "readerId": 3,
+    "dateReturn": "2025-01-01"
   },
   {
     "id": 2,
@@ -15,9 +15,9 @@
     "author": "Thomas Harris",
     "datePublication": "1981-02-14",
     "description": "THE GREAT BOOK OF THE GREATEST OF THE MASTERS OF THE GENRE. THE BEGINNING OF THE STORY OF THE GREAT AND TERRIBLE HANNIBAL LECTER. A novel that precedes the cult book: The Silence of the Lambs. The famous film adaptation starring Anthony Hopkins.",
-    "inStock": false,
-    "readerId": 1,
-    "dateReturn": "2024-12-12"
+    "inStock": true,
+    "readerId": null,
+    "dateReturn": null
   },
   {
     "id": 3,
@@ -25,16 +25,6 @@
     "author": "F. Scott Fitzgerald",
     "datePublication": "1925-04-10",
     "description": "A novel set in the Roaring Twenties that tells the story of Jay Gatsby's unrequited love for Daisy Buchanan.",
-    "inStock": false,
-    "readerId": 3,
-    "dateReturn": "2024-12-26"
-  },
-  {
-    "id": 4,
-    "title": "Moby Dick",
-    "author": "78",
-    "datePublication": "1851-10-18",
-    "description": "The narrative of Captain Ahab's obsessive quest to seek revenge on Moby Dick, the giant white whale.",
     "inStock": false,
     "readerId": 3,
     "dateReturn": "2024-12-26"
@@ -63,11 +53,11 @@
     "id": 7,
     "title": "Brave New World",
     "author": "Aldous Huxley",
-    "datePublication": "1932-08-31",
+    "datePublication": "9999-08-31",
     "description": "A dystopian novel that explores a technologically advanced future where society is engineered for maximum happiness.",
-    "inStock": false,
-    "readerId": 3,
-    "dateReturn": "2024-12-26"
+    "inStock": true,
+    "readerId": null,
+    "dateReturn": null
   },
   {
     "id": 8,

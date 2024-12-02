@@ -1,24 +1,48 @@
 extends ../layout
 
 block content
+    if tip
+        div#bookTakenModal.modal(style="display:block;")
+            div.modal-content
+                span.close(onclick="document.getElementById('bookTakenModal').style.display='none'") &times;
+                p #{tip}
     div.container
         .search__block
             input.search(type='text' placeholder='Search...' name='title' maxlength='100')
-            button.add(type="submit")
+            button.add(type="button")
                 i.fas.fa-plus-circle 
             button.filter(type="button")
                 i.fas.fa-filter
             dialog.dialog
                 div.modal__content 
                     label   
-                        input(type="checkbox" name="available" id="available")
+                        input(type="checkbox" name="available" id="available" checked=filterState && filterState.available)
                         span Есть в наличии
                     label
-                        input(type="checkbox" name="returned" id="returned")
+                        input(type="checkbox" name="returned" id="returned" checked=filterState && filterState.returned)
                         span Дата возврата
                     div.button__group
                         button.cancel-button(type="button") Cancel
-                        button.confirm-button(type="button") Confirm
+                        button.confirm-button(type="button", onclick="filterBooks()") Confirm
+            dialog#addBookDialog.dialog
+                div.modal__content
+                    h2 Add New Book
+                    form#addBookForm(action="/books/add" method="POST")
+                        div.form__group
+                            label(for="title") Title *
+                            input#title(type="text" name="title" required maxlength="100")
+                        div.form__group
+                            label(for="author") Author *
+                            input#author(type="text" name="author" required maxlength="100")
+                        div.form__group
+                            label(for="datePublication") Publication Date *
+                            input#datePublication(type="date" name="datePublication" required)
+                        div.form__group
+                            label(for="description") Description
+                            textarea#description(name="description" maxlength="500")
+                        div.button__group
+                            button.cancel-button(type="button") Cancel
+                            button.confirm-button(type="submit") Add Book
         div.table__block
             div.table-container
                 table.books__list
@@ -46,5 +70,7 @@ block content
                                         div.button__indesc
                                             a.button_info(href=`/books/${book.id}`)
                                                 i.fas.fa-info-circle
-                                            button.button_delete(type="button")
-                                                i.fas.fa-trash
+                                            form(action=`/books/${book.id}?_method=DELETE` method="POST" style="display:inline;" onsubmit="return confirmDelete();")
+                                                button.button_delete(type="submit")
+                                                    i.fas.fa-trash
+        

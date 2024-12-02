@@ -3,10 +3,10 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: black;
   overflow: auto;
   margin: 0;
   height: 100%;
-  background-color: black;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
   justify-content: center;
 }
 
-/* Начало блока стилей для layout.pug */
+/*Layout components */
 .page__head {
   display: flex;
   justify-content: space-between;
@@ -80,14 +80,15 @@ body {
 
 /* Начало блока стилей для index.pug */
 .container {
+  min-height: 400px;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
   background: rgba(247, 244, 244, 0.8);
   border-radius: 20px;
   padding: 15px 20px;
-  display: flex;
-  flex-direction: column;
   gap: 40px;
   width: 80vw;
-  height: 60vh;
 }
 
 .search__block {
@@ -112,6 +113,8 @@ body {
 
 .dialog {
   display: none;
+  position: fixed;
+  top: 25%;
   border: none;
   height: auto;
   width: 300px;
@@ -119,7 +122,11 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  flex-direction: column;
+  z-index: 1000;
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .modal__content {
@@ -134,16 +141,21 @@ body {
 }
 
 .text__info {
+  min-width: 0;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: inline-block;
   font-family: "Inria Serif", serif;
   color: #645555;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  width: calc(30vw - 200px);
 }
 
 .table-container {
+  flex: 1;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
   max-height: 500px;
   overflow-y: auto;
   border-radius: 15px;
@@ -152,7 +164,7 @@ body {
 
 .books__list {
   width: 100%;
-  border-collapse: collapse;
+  table-layout: fixed;
   font-family: "Inria Serif", serif;
   color: #645555;
 }
@@ -179,25 +191,115 @@ tbody {
   vertical-align: middle;
 }
 
-.button_info, .button_delete, .add, .filter {
-  background-color: transparent; /* No background */
-  border: none; /* No border */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 1em; /* Increase icon size */
-  padding: 3px; /* Add some padding */
-  transition: transform 0.2s; /* Smooth transition for hover effect */
+.button_delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding-right: 5px;
+  transition: transform 0.2s;
+}
+
+.button_info, .add, .filter {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 3px;
+  transition: transform 0.2s;
 }
 
 .button_info:hover, .button_delete:hover, .add:hover, .filter:hover {
-  transform: scale(1.1); /* Slightly enlarge on hover */
+  transform: scale(1.1);
 }
 
 .button_info i, .button_delete i, .add i, .filter i {
-  color: #645555; /* Change icon color */
+  color: #645555;
 }
 
 .button_delete i {
-  color: #c02828; /* Change delete icon color */
+  color: #c02828;
+}
+
+/* Add Book Modal Styles */
+#addBookDialog {
+  width: 400px;
+  padding: 25px;
+}
+
+#addBookDialog h2 {
+  font-family: "Inria Serif", serif;
+  color: #645555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form__group {
+  margin-bottom: 15px;
+}
+
+.form__group label {
+  display: block;
+  font-family: "Inria Serif", serif;
+  color: #645555;
+  margin-bottom: 5px;
+}
+
+.form__group input,
+.form__group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: "Inria Serif", serif;
+  font-size: 1rem;
+  color: #645555;
+}
+
+.form__group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.button__group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button__group button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Inria Serif", serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancel-button {
+  background-color: #645555;
+  color: white;
+}
+
+.confirm-button {
+  background-color: #c02828;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #7a6868;
+}
+
+.confirm-button:hover {
+  background-color: #e92e2e;
+}
+
+.error-message {
+  color: #c02828;
+  font-size: 0.9rem;
+  margin-top: 4px;
+  display: none;
 }
 
 /* Конец блока стилей для index.pug */
@@ -220,19 +322,17 @@ tbody {
 }
 
 .information p {
-  font-weight: bold; /* Жирный шрифт для всех параграфов */
-  margin: 10px 0; /* Вертикальные отступы между параграфами */
+  font-weight: bold;
+  margin: 10px 0;
 }
 
-/* Специальные стили для заголовка */
 .information p:first-child {
-  font-size: 26px; /* Увеличенный размер шрифта для заголовка */
-  margin-bottom: 15px; /* Дополнительный отступ снизу заголовка */
+  font-size: 26px;
+  margin-bottom: 15px;
 }
 
-/* Иконка перед каждым параграфом */
 .information p::before {
-  margin-right: 8px; /* Отступ между эмоджи и текстом */
+  margin-right: 8px;
 }
 
 /* Эмоджи для каждого конкретного параграфа */
@@ -328,6 +428,17 @@ tbody {
   background-color: #c02828;
 }
 
+.book__button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.book__button:disabled:hover {
+  background-color: #cccccc;
+  transform: none;
+}
+
 .modal {
   position: fixed; 
   top: 0;
@@ -364,3 +475,61 @@ tbody {
 }
 
 /* Конец блока стилей для book.pug */
+
+/* Update Table Styles */
+.table-container {
+  flex: 1;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.books__list {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Define minimum widths for columns */
+.books__list th:nth-child(1),
+.books__list td:nth-child(1) {
+  width: 20%;
+  min-width: 150px;
+}
+
+.books__list th:nth-child(2),
+.books__list td:nth-child(2) {
+  width: 20%;
+  min-width: 150px;
+}
+
+.books__list th:nth-child(3),
+.books__list td:nth-child(3) {
+  width: 15%;
+  min-width: 100px;
+}
+
+.books__list th:nth-child(4),
+.books__list td:nth-child(4) {
+  width: 45%;
+  min-width: 200px;
+}
+
+/* Update text overflow handling */
+.text__info {
+  min-width: 0;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Add horizontal scroll for narrow screens */
+@media screen and (max-width: 800px) {
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .books__list {
+    min-width: 600px; /* Minimum total table width */
+  }
+}
