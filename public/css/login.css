@@ -71,7 +71,7 @@ body {
 
 .user {
   border: 1px solid;
-  outline: none; /*ВОПРОС*/
+  outline: none;
   box-shadow: none;
   height: 40px;
   width: 100%;

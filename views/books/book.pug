@@ -2,6 +2,7 @@ extends ../layout
 
 block content
     .container__book
+
         div.information
             p Information:
             p #{bookToRender.title}
@@ -10,23 +11,42 @@ block content
             p #{bookToRender.inStock}
             p #{bookToRender.readerName}
             p #{bookToRender.dateReturn}
+
         div.description
             p Description: #{bookToRender.description}
+
+        div.buttons
+            button.book__button(type="button" onclick="document.getElementById('editForm').style.display='block'") Redact
+
+            if !bookToRender.readerId
+                form(action=`/books/takeit/${bookToRender.id}?_method=POST` method="POST")
+                    button.book__button(type="submit") Take it
+
+            if user && bookToRender.readerId === user.id
+                form(action=`/books/return/${bookToRender.id}?_method=POST` method="POST")
+                    button.book__button(type="submit") Return it
+
+            button.book__button(type="button" onclick="goBack()") Go back      
+
+        dialog#editForm.dialog
+            div.modal__content
+                h2 Edit Book
+                form(action=`/books/redact/${bookToRender.id}?_method=PUT` method="POST")
+                    div.form__group
+                        label(for="title") Title
+                        input#title(type="text" name="title" placeholder="Title" value=bookToRender.title)
+                    div.form__group
+                        label(for="author") Author
+                        input#author(type="text" name="author" placeholder="Author" value=bookToRender.author)
+                    div.form__group
+                        label(for="datePublication") Publication Date
+                        input#datePublication(type="date" name="datePublication" value=bookToRender.datePublication)
+                    div.button__group
+                        button.cancel-button(type="button" onclick="document.getElementById('editForm').style.display='none'") Cancel
+                        button.confirm-button(type="submit") Save Changes
+
         if tip
             div#bookTakenModal.modal(style="display:block;")
                 div.modal-content
                     span.close(onclick="document.getElementById('bookTakenModal').style.display='none'") &times;
                     p #{tip}
-        div.buttons
-            button.book__button(type="button" onclick="document.getElementById('editForm').style.display='block'") Redact
-            form(action=`/books/takeit/${bookToRender.id}?_method=PUT` method="POST")
-                button.book__button(type="submit") Take it
-            form(action=`/books/return/${bookToRender.id}?_method=PUT` method="POST")
-                button.book__button(type="submit") Return it
-            button.book__button(type="button" onclick="location.href='/books'") Go back       
-        form#editForm(style="display:none;" action=`/books/redact/${bookToRender.id}?_method=PUT` method="POST")
-            input(type="text" name="title" placeholder="Title" value="")
-            input(type="text" name="author" placeholder="Author" value="")
-            input(type="date" name="datePublication" value="")
-            button(type="submit") Save Changes
-            button(type="button" onclick="document.getElementById('editForm').style.display='none'") Cancel

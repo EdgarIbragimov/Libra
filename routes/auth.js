@@ -1,23 +1,22 @@
 import express from "express";
-// import bcrypt from "bcrypt";
 import passport from "passport";
 import { generateToken } from "../config/passport.js";
 
 const authRouter = express.Router();
 
-authRouter.post(
-  "/login",
-  passport.authenticate("local", { session: false }),
-  (req, res) => {
-    const token = generateToken(req.user);
-
-    //res.json({ token, message: "Successfull token generated" });
-    //console.log(token);
-
+authRouter.post("/login", (req, res, next) => {
+  passport.authenticate("local", { session: false }, (error, user, info) => {
+    if (error) {
+      return next(error);
+    }
+    if (!user) {
+      res.redirect("/login");
+    }
+    const token = generateToken(user);
     res.cookie("token", token, { httpOnly: true });
     res.redirect("/books");
-  }
-);
+  })(req, res, next);
+});
 
 authRouter.get("/logout", (req, res) => {
   res.clearCookie("token");
